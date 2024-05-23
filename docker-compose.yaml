@@ -5,7 +5,7 @@ services:
       dockerfile: ./src/backend/Dockerfile.dev
     restart: always
     expose:
-      - 8000
+      - 8000:8000
     environment:
       - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}
       - TAVILY_API_KEY=${TAVILY_API_KEY}
@@ -33,7 +33,7 @@ services:
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000}
       - NEXT_PUBLIC_LOCAL_MODE_ENABLED=${NEXT_PUBLIC_LOCAL_MODE_ENABLED:-true}
     expose:
-      - 3000
+      - 3000:3000
     develop:
       watch:
         - action: sync
@@ -49,7 +49,7 @@ services:
     networks:
       - searxng
     expose:
-      - 8080
+      - 8080:8080
     volumes:
       - ./searxng:/etc/searxng:rw
     environment:

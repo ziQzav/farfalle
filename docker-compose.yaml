@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: ./src/backend/Dockerfile.dev
     restart: always
-   expose:
+    expose:
       - 8000
     environment:
       - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}

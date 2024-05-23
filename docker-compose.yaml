@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: ./src/backend/Dockerfile.dev
     restart: always
-    ports:
+   expose:
       - "8000:8000"
     environment:
       - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}
@@ -32,7 +32,7 @@ services:
     environment:
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000}
       - NEXT_PUBLIC_LOCAL_MODE_ENABLED=${NEXT_PUBLIC_LOCAL_MODE_ENABLED:-true}
-    ports:
+    expose:
       - "3000:3000"
     develop:
       watch:
